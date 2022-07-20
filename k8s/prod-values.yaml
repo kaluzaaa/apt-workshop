@@ -1,0 +1,5 @@
+app:
+  replicaCount: 10
+  ingress:
+    class: nginx
+    hostname: localhost
