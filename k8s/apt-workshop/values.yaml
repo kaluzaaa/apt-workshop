@@ -11,6 +11,16 @@ redis:
     limits:
       cpu: 100m
       memory: 128Mi
+app:
+  replicaCount: 1
+  image:
+    repository: lukaszkaluzny/apt-workshop
+    pullPolicy: IfNotPresent
+    tag: "manual"
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
 
 image:
   repository: nginx
