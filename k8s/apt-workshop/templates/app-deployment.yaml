@@ -25,5 +25,13 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 9090
+            failureThreshold: 3
+            periodSeconds: 5
+            initialDelaySeconds: 30
+            successThreshold: 1
           resources:
             {{- toYaml .Values.app.resources | nindent 12 }}
