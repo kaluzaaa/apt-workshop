@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apt-workshop
+spec:
+  selector:
+    matchLabels:
+      app: apt-workshop
+  template:
+    metadata:
+      labels:
+        app: apt-workshop
+    spec:
+      containers:
+      - name: apt-workshop
+        image: lukaszkaluzny/apt-workshop:manual
+        env:
+          - name: REDIS
+            value: "redis"
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apt-workshop
+spec:
+  type: LoadBalancer
+  selector:
+    app: apt-workshop
+  ports:
+  - port: 80
+    targetPort: 80
