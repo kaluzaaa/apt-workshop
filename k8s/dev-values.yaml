@@ -1,5 +1,5 @@
 app:
-  replicaCount: 2
+  replicaCount: 5
   ingress:
     class: addon-http-application-routing
     hostname: dev-app.6ab43675973c466fb76a.westeurope.aksapp.io
