@@ -21,6 +21,9 @@ app:
     limits:
       cpu: 200m
       memory: 512Mi
+  ingress:
+    class: addon-http-application-routing
+    hostname: localhost
 
 image:
   repository: nginx
