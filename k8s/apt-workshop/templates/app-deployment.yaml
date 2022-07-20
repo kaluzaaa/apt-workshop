@@ -28,7 +28,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /
-              port: 9090
+              port: 80
             failureThreshold: 3
             periodSeconds: 5
             initialDelaySeconds: 30
